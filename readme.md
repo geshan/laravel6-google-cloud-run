@@ -12,7 +12,7 @@ If you want to run it locally, given you have docker and docker-compose installe
 docker-compose up
 ```
 
-Then browse to `http://localhost:"8080`
+Then browse to `http://localhost:8080`
 
 ### Run on Google cloud run
 
