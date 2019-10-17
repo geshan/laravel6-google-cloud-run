@@ -28,6 +28,7 @@ class TestController extends Controller
     public function index()
     {
         $this->logger->info('test', ['var' => 'val']);
+        $this->logger->channel('stderr')->critical('testing err', ['var' => 'val']);
         $this->logger->channel('logentries')->info('This is a test info line', ['type' => 2]);
         $this->logger->channel('logentries')->warning('This is a test warning line', ['type' => 3]);
 
