@@ -72,6 +72,14 @@ return [
             ],
         ],
 
+        'logentries' => [
+            'driver'  => 'monolog',
+            'handler' => Monolog\Handler\LogEntriesHandler::class,
+            'with' => [
+                'token' => '43aa8f53-7341-454b-88dc-dc8cdb9636dd',
+            ],
+        ],
+
         'stderr' => [
             'driver' => 'monolog',
             'handler' => StreamHandler::class,
