@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Illuminate\Log\LogManager;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 class TestController extends Controller
 {
@@ -15,9 +16,10 @@ class TestController extends Controller
      *
      * @return void
      */
-    public function __construct(LogManager $logger)
+    public function __construct(LogManager $logger, Stopwatch $stopwatch)
     {
         $this->logger = $logger;
+        $this->stopwatch = $stopwatch;
     }
 
     /**
@@ -44,8 +46,15 @@ class TestController extends Controller
             );
         }
 
+        $this->stopwatch->start('renderWelcome', 'render');
+        $view = view('welcome-edited');
+        $event = $this->stopwatch->stop('renderWelcome');
+        $this->logger->channel('logentries')->info(
+            sprintf('Welcome took %s', $event->__toString()),
+            ['view' => 'welcome']
+        );
 
-        return view('welcome-edited');
+        return $view;
     }
 
 }
