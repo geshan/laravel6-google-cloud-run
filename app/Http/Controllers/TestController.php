@@ -54,7 +54,7 @@ class TestController extends Controller
             ['view' => 'welcome']
         );
         $this->logger->alert(
-            'This is an alert',
+            'This is an alert message',
             [
                 'time' => now(),
                 'mem' => sprintf('%.2f mb', memory_get_peak_usage()/(1024*1024))
