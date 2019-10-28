@@ -71,7 +71,6 @@ return [
                 'port' => env('PAPERTRAIL_PORT'),
             ],
         ],
-
         'logentries' => [
             'driver'  => 'monolog',
             'handler' => Monolog\Handler\LogEntriesHandler::class,
