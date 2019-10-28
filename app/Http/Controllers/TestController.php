@@ -53,6 +53,13 @@ class TestController extends Controller
             sprintf('Welcome took %s', $event->__toString()),
             ['view' => 'welcome']
         );
+        $this->logger->alert(
+            'This is an alert',
+            [
+                'time' => now(),
+                'mem' => sprintf('%.2f mb', memory_get_peak_usage()/(1024*1024))
+            ]
+        );
         $this->logger->channel('logentries')->info(
             'Goes to logentries only',
             ['renderMemory' => $event->getMemory()]
