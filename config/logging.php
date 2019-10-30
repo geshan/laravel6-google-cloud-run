@@ -54,6 +54,14 @@ return [
             'days' => 14,
         ],
 
+        'logentries' => [
+            'driver'  => 'monolog',
+            'handler' => Monolog\Handler\LogEntriesHandler::class,
+            'with' => [
+                'token' => env('LOGENTRIES_TOKEN'),
+            ],
+        ],
+
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),
@@ -69,13 +77,6 @@ return [
             'handler_with' => [
                 'host' => env('PAPERTRAIL_URL'),
                 'port' => env('PAPERTRAIL_PORT'),
-            ],
-        ],
-        'logentries' => [
-            'driver'  => 'monolog',
-            'handler' => Monolog\Handler\LogEntriesHandler::class,
-            'with' => [
-                'token' => env('LOGENTRIES_TOKEN'),
             ],
         ],
 
